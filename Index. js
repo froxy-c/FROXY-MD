@@ -1,0 +1,48 @@
+const express = require('express');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+    res.send(`
+        <html>
+        <head>
+            <title>FROXY MD</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+                body {
+                    background: #0b1020;
+                    color: white;
+                    font-family: Arial, sans-serif;
+                    text-align: center;
+                    padding: 60px 20px;
+                }
+                h1 { color: #00e5ff; }
+                .box {
+                    background: #172033;
+                    padding: 25px;
+                    border-radius: 15px;
+                    max-width: 400px;
+                    margin: auto;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="box">
+                <h1>FROXY MD 🤖</h1>
+                <p>WhatsApp Bot Project</p>
+                <p>Status: Website Online ✅</p>
+                <p>Version: 1.0.0</p>
+            </div>
+        </body>
+        </html>
+    `);
+});
+
+app.get('/health', (req, res) => {
+    res.json({ status: 'online', bot: 'FROXY MD' });
+});
+
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`FROXY MD running on port ${PORT}`);
+});
